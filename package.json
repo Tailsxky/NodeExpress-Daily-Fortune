@@ -1,0 +1,20 @@
+{
+  "name": "node-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "watch": {
+    "test": "app.js"
+  },
+  "scripts": {
+    "test": "app.js",
+    "watch": "npm-watch"
+  },
+  "author": "tails",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "express3-handlebars": "^0.5.2",
+    "npm-watch": "^0.3.0"
+  }
+}

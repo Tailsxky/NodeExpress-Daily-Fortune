@@ -6,7 +6,7 @@ var fortune = require('./lib/fortune.js');
 
 //handlebar view temp
 
-var handlebars = require('express3-handlebars').create({ defaultLayout:'main' });
+var handlebars = require('express-handlebars').create({ defaultLayout:'main' });
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 

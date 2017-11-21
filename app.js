@@ -25,7 +25,6 @@ app.get('/about', function(req, res){
             res.render('about', { fortune: fortune.getFortune() });
 });
 
-
 //404page
 
 app.use(function(req,res){

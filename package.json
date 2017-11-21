@@ -16,5 +16,15 @@
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "npm-watch": "^0.3.0"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.5"
+  },
+  "jshintConfig": {
+    "eqeqeq": true,
+    "predef": [
+      "MY_GLOBAL",
+      "ads"
+    ]
   }
 }

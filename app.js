@@ -4,6 +4,31 @@ var app = express();
 
 var fortune = require('./lib/fortune.js');
 
+var nodemailer = require('nodemailer');
+
+var credentials = require('./lib/credentials.js');
+
+var mailTransport = nodemailer. createTransport({
+	service:'Gmail',
+	auth:{
+		user: credentials.gmail.user,
+		pass: credentials.gmail.password,
+	}
+});
+
+var sendmail = function(){
+	mailTransport.sendMail({
+		from:'"Tails" <tailsxky@gamil.com>',
+		to: 'xky900410@163.com',
+		subject: 'Email Test!',
+		text: 'This is the fucking email test!',
+	},function(err){
+		if(err) console.error('Error: ' + err);
+	});
+};
+
+sendmail();
+
 //handlebar view temp
 
 var handlebars = require('express-handlebars').create({ defaultLayout:'main', helpers: {

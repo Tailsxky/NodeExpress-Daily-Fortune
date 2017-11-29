@@ -6,9 +6,12 @@ var fortune = require('./lib/fortune.js');
 
 var staff = require('./lib/staff.js');
 
-var nodemailer = require('nodemailer');
-
 var credentials = require('./lib/credentials.js');
+
+require('./lib/routes.js')(app);
+
+//发送邮件模块
+var nodemailer = require('nodemailer');
 
 var mailTransport = nodemailer. createTransport({
 	service:'Gmail',
@@ -54,19 +57,6 @@ app.use(express.static(__dirname + '/public'));
 
 app.use(require('body-parser')());
 
-
-app.get('/', function(req, res){ 
-            res.render('home');
-});
-
-app.get('/about', function(req, res){
-	 
-            res.render('about', { fortune: fortune.getFortune() });
-});
-
-app.get('/newsletter', function(req, res){
-            res.render('newsletter');    
-});
 
 /*app.get('/contest/vacation-photo', function(req, res){
             res.render('./contest/vacation-photo');    

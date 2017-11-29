@@ -4,6 +4,8 @@ var app = express();
 
 var fortune = require('./lib/fortune.js');
 
+var staff = require('./lib/staff.js');
+
 var nodemailer = require('nodemailer');
 
 var credentials = require('./lib/credentials.js');
@@ -27,7 +29,8 @@ var sendmail = function(){
 	});
 };
 
-sendmail();
+//sendmail();
+
 
 //handlebar view temp
 
@@ -68,6 +71,18 @@ app.get('/newsletter', function(req, res){
 /*app.get('/contest/vacation-photo', function(req, res){
             res.render('./contest/vacation-photo');    
 });*/
+
+/*var staff = {
+	mitch:{bio:'Strong man!'},
+	madeline:{bio: 'Stronger man!!'},
+	walt:{bio:'Strongest man!!!'},
+};*/
+
+app.get('/staff/:name',function(req,res){
+	var info = staff.staffs[req.params.name];
+	if(!info) return next();
+	res.render('staffer', {info:info.bio});
+});
 
 var formidable = require('formidable');
 
